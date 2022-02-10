@@ -21,12 +21,19 @@ make mysql
 ```
 
 ## Todo
-- [ ] clean up and git push 
-- [ ] CRUD for user
+- [ ] clean up and git push
+- [ ] CRUD for user (on memory)
   - [x] findAll
+  - [x] findById
+  - [x] create
+  - [x] delete
+  - [x] update
+- [ ] CRUD for user (on mysql)
+  - [ ] findAll
   - [ ] findById
   - [ ] create
   - [ ] delete
+  - [ ] update
 - [ ] openapi integration
 - [ ] connect to mysql
 - [ ] build and run as a container

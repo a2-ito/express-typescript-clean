@@ -1,0 +1,120 @@
+swagger: '2.0'
+basePath: '/v1'
+info:
+  version: "1.0"
+  title: Todo Application API
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths: {}
+
+parameters:
+  id:
+    description: タスクID
+    name: id
+    in: path
+    required: true
+    type: integer
+    format: int32
+  offset:
+    description: 取得するレコードの開始位置
+    name: offset
+    in: query
+    type: integer
+    format: int32
+    minimum: 0
+  limit:
+    description: 取得するレコードの件数
+    name: limit
+    in: query
+    type: integer
+    format: int32
+    minimum: 1
+
+definitions:
+  Error:
+    type: object
+    readOnly: true
+    properties:
+      code:
+        description: HTTPステータスコード
+        type: integer
+        format: int32
+      message:
+        description: エラーメッセージ
+        type: string
+  PageInfo:
+    type: object
+    readOnly: true
+    required:
+      - total
+      - offset
+    properties:
+      total:
+        description: 取得件数の上限数
+        type: integer
+        format: int32
+        minimum: 0
+      offset:
+        description: 取得したレコードの開始位置
+        type: integer
+        format: int32
+        minimum: 0
+  Task:
+    type: object
+    readOnly: true
+    properties:
+      id:
+        description: タスクのID
+        type: integer
+        format: int32
+      title:
+        description: タスクの名前
+        type: string
+      is_done:
+        description: タスクの状態
+        default: false
+        type: boolean
+  TaskList:
+    type: object
+    readOnly: true
+    properties:
+      tasks:
+        type: array
+        items:
+          $ref: '#/definitions/Task'
+  TaskOne:
+    type: object
+    readOnly: true
+    properties:
+      task:
+        $ref: '#/definitions/Task'
+  TaskToPost:
+    type: object
+    required:
+      - title
+    properties:
+      title:
+        description: タスクの名前
+        type: string
+        minLength: 1
+        maxLength: 64
+      is_done:
+        description: タスクの状態
+        default: false
+        type: boolean
+  TaskToPut:
+    type: object
+    properties:
+      title:
+        description: タスクの名前
+        type: string
+        minLength: 1
+        maxLength: 64
+      is_done:
+        description: タスクの状態
+        type: boolean
