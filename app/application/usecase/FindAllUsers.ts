@@ -9,7 +9,7 @@ class FindAllUsers {
   }
 
   public execute(): Promise<User[]> {
-    //console.log('usecase FindAllUsers');
+    console.log('usecase FindAllUsers');
     return this.userRepository.findAll();
   }
 }

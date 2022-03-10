@@ -20,6 +20,10 @@ make
 make mysql
 ```
 
+```
+curl -XPUT localhost:3000/user/1 -H "Content-Type: application/json" -d '{"id":1,"name":"hogehoge"}'
+```
+
 ## Todo
 - [ ] clean up and git push
 - [ ] CRUD for user (on memory)
@@ -28,16 +32,17 @@ make mysql
   - [x] create
   - [x] delete
   - [x] update
-- [ ] CRUD for user (on mysql)
-  - [ ] findAll
-  - [ ] findById
-  - [ ] create
-  - [ ] delete
-  - [ ] update
-- [ ] openapi integration
-- [ ] connect to mysql
-- [ ] build and run as a container
-- [ ] unit test
-- [ ] int test on postman
+- [x] CRUD for user (on mysql)
+  - [x] findAll
+  - [x] findById
+  - [x] create
+  - [x] delete
+  - [x] update
+- [x] openapi integration
+- [x] connect to mysql
+- [x] unit test
+- [x] int test
+- [ ] e2e test
+- [ ] build and run as a container (buildpacks)
 - [ ] github actions
 

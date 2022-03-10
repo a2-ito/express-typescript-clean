@@ -11,7 +11,7 @@ class UserRepositoryImpl extends UserRepositoryInterface {
   }
 
   private convert(r: User) {
-    let user = new User(r.id, r.name);
+    let user = new User(r.id, r.name, r.firstname, r.lastname, r.email);
     return user;
   }
 
@@ -37,19 +37,28 @@ class UserRepositoryImpl extends UserRepositoryInterface {
   }
 
   public async create(user: User): Promise<User> {
+    console.log('Repository createUser ' + user.id + ' ' + user.name);
     await this.connection.execute(
-      `insert into Users (id, name) values ("${user.id}", "${user.name}")`
+      `insert into Users (id, name, firstname, lastname, email) values ("${user.id}", "${user.name}", "${user.firstname}", "${user.lastname}", "${user.email}")`
       );
     return user;
   }
 
   public async update(user: User): Promise<User> {
+    await this.connection.execute(
+      "update Users set name = ?, firstname = ?, lastname = ?, email = ? where id = ?",
+      [user.name, user.firstname, user.lastname, user.email, user.id]
+      );
     return user;
   }
 
   public async delete(id: number): Promise<null> {
+    await this.connection.execute(
+      "delete from Users where id = ?",
+      id
+      );
     return null;
   }
 }
 
-export { UserRepositoryImpl as UserRepositoryonMysql };
+export { UserRepositoryImpl as UserRepository };

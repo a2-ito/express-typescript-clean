@@ -9,7 +9,7 @@ class UpdateUser {
   }
 
   public execute(user: User): Promise<User> {
-    console.log('usecase Update');
+    console.log('usecase Update: ' + user.id + ' ' + user.name);
     return this.userRepository.update(user);
   }
 }

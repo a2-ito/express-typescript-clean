@@ -37,7 +37,6 @@ paths:
             type: array
             items:
               $ref: '#/definitions/User'
-  /user:
     post:
       tags:
       - users
@@ -53,7 +52,7 @@ paths:
       responses:
         default:
           description: successful operation
-  /user/{id}:
+  /users/{id}:
     get:
       tags:
       - users

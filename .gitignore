@@ -1,7 +1,7 @@
 # Common
 node_modules
 build
-dist
+./dist
 .sass-cache
 *.swp
 *.db

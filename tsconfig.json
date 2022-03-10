@@ -8,6 +8,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2015"]
+    "lib": [
+      "ES2015","DOM"
+    ],
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   }
 }

@@ -9,6 +9,7 @@ class CreateUser {
   }
 
   public execute(user: User): Promise<User> {
+    console.log('usecase CraeteUser');
     return this.userRepository.create(user);
   }
 }

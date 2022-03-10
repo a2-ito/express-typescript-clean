@@ -9,7 +9,7 @@ class FindById {
   }
 
   public execute(id: number): Promise<User | null> {
-    console.log('usecase FindById');
+    console.log('usecase FindById: ' + id);
     return this.userRepository.findById(id);
   }
 }
